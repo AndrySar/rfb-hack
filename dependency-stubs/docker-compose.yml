@@ -1,0 +1,10 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:alpine
+    ports:
+      - '15808:5432'
+    environment:
+      POSTGRES_DB: rfb_hack
+      POSTGRES_USER: rfb_hack
+      POSTGRES_PASSWORD: rfb_hack
