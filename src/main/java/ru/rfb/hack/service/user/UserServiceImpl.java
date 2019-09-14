@@ -10,8 +10,11 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements  UserService {
 
-    @Autowired
-    private UserEntityRepository userEntityRepository;
+    private final UserEntityRepository userEntityRepository;
+
+    public UserServiceImpl(UserEntityRepository userEntityRepository) {
+        this.userEntityRepository = userEntityRepository;
+    }
 
     @Override
     public UserEntity createUser(UserEntity userEntity) {
