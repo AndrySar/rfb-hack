@@ -35,10 +35,17 @@ public class OrganizationService {
         Coordinate coordinatesBelow = CoordinatesConverter.convertToBelow(coordinates);
 
         if (Objects.nonNull(categories) && !categories.isEmpty()) {
+            log.info("Categories: {}", categories);
             List<String> categoryTypes = CategoryConverter.convert(categories);
+
+            log.info("Categories type: ");
+            for (String category : categoryTypes) {
+                log.info("{}", category);
+            }
 
             return getOrganizationsByCoordinatesAndCategories(coordinatesAbove, coordinatesBelow, categoryTypes);
         } else {
+            log.info("Categories does not exists");
             return getOrganizationsByCoordinates(coordinatesAbove, coordinatesBelow);
         }
     }
