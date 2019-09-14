@@ -1,11 +1,15 @@
 package ru.rfb.hack.domain.dto;
 
-public class OrganizationDTO {
+public class OrganizationDTO{
 
     private String name;
     private String category;
     private Double lat;
     private Double lon;
+
+    public OrganizationDTO() {
+        super();
+    }
 
     public OrganizationDTO(String name, String category, Double lat, Double lon) {
         this.name = name;
