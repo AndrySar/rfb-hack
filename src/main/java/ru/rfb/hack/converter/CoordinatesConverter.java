@@ -5,7 +5,7 @@ import ru.rfb.hack.domain.model.Coordinate;
 
 public class CoordinatesConverter {
 
-    private static final Double DELTA = 0.1;
+    private static final Double DELTA = 0.05;
 
     public static Coordinate convert(CoordinatesDTO coordinatesDTO) {
         return new Coordinate(coordinatesDTO.getLat(), coordinatesDTO.getLon());
