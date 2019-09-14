@@ -1,31 +1,33 @@
 package ru.rfb.hack.domain.model.request;
 
-import java.util.Objects;
+import ru.rfb.hack.domain.dto.CoordinatesDTO;
+
+import java.util.List;
 
 public class OrganizationRequest {
 
-    private String lat;
-    private String lon;
+    private CoordinatesDTO coordinates;
+    private List<String> categories;
 
-    public OrganizationRequest(String lat, String lon) {
-        this.lat = lat;
-        this.lon = lon;
+    public OrganizationRequest(CoordinatesDTO coordinates, List<String> categories) {
+        this.coordinates = coordinates;
+        this.categories = categories;
     }
 
-    public String getLat() {
-        return lat;
+    public CoordinatesDTO getCoordinates() {
+        return coordinates;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
+    public void setCoordinates(CoordinatesDTO coordinates) {
+        this.coordinates = coordinates;
     }
 
-    public String getLon() {
-        return lon;
+    public List<String> getCategories() {
+        return categories;
     }
 
-    public void setLon(String lon) {
-        this.lon = lon;
+    public void setCategories(List<String> categories) {
+        this.categories = categories;
     }
 }
 

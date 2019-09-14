@@ -1,48 +1,22 @@
 package ru.rfb.hack.domain.model.response;
 
+import ru.rfb.hack.domain.dto.OrganizationDTO;
+
+import java.util.List;
+
 public class OrganizationResponse {
 
-    private String name;
-    private String category;
-    private String lat;
-    private String lon;
+    private List<OrganizationDTO> organizations;
 
-    public OrganizationResponse(String name, String category, String lat, String lon) {
-        this.name = name;
-        this.category = category;
-        this.lat = lat;
-        this.lon = lon;
+    public OrganizationResponse(List<OrganizationDTO> organizations) {
+        this.organizations = organizations;
     }
 
-    public String getName() {
-        return name;
+    public List<OrganizationDTO> getOrganizations() {
+        return organizations;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getLat() {
-        return lat;
-    }
-
-    public void setLat(String lat) {
-        this.lat = lat;
-    }
-
-    public String getLon() {
-        return lon;
-    }
-
-    public void setLon(String lon) {
-        this.lon = lon;
+    public void setOrganizations(List<OrganizationDTO> organizations) {
+        this.organizations = organizations;
     }
 }
