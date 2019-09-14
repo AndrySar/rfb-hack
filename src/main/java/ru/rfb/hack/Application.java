@@ -1,5 +1,6 @@
 package ru.rfb.hack;
 
+import com.fasterxml.jackson.core.SerializableString;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

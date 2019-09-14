@@ -18,11 +18,13 @@ import ru.rfb.hack.service.registration.RegistrationService;
 @RestController
 public class RegistrationController {
 
-    @Autowired
-    private RegistrationService registrationService;
+    private final RegistrationService registrationService;
+    private final AuthService authService;
 
-    @Autowired
-    private AuthService authService;
+    public RegistrationController(AuthService authService, RegistrationService registrationService) {
+        this.authService = authService;
+        this.registrationService = registrationService;
+    }
 
     @RequestMapping(path = "/user/signup", method = RequestMethod.POST)
     public ResponseEntity signUp(@RequestBody RegistrationRequest request) {
