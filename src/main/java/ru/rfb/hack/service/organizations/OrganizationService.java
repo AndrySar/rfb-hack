@@ -34,7 +34,6 @@ public class OrganizationService {
         Coordinate coordinatesBelow = CoordinatesConverter.convertToBelow(coordinates);
 
         if (Objects.nonNull(categories) && !categories.isEmpty()) {
-            log.info("Categories is not empty");
             return getOrganizationsByCoordinatesAndCategories(coordinatesAbove, coordinatesBelow, categories);
         } else {
             return getOrganizationsByCoordinates(coordinatesAbove, coordinatesBelow);

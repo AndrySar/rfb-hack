@@ -22,7 +22,7 @@ public class JdbcOrganizationRepository {
         "SELECT organization_name, category AS categories, lat, lon " +
         "FROM organizations " +
         "WHERE lat >= :latBelow AND lat <= :latAbove AND " +
-        "      lon >= :lonBelow AND lon <= :lonAbove AND ";
+        "      lon >= :lonBelow AND lon <= :lonAbove ";
 
     private static final String FIND_ORGANIZATION_BY_COORDINATES_AND_CATEGORIES = "" +
         "SELECT organization_name, category AS categories, lat, lon " +
