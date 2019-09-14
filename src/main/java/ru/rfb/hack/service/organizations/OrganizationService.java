@@ -3,6 +3,7 @@ package ru.rfb.hack.service.organizations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import ru.rfb.hack.converter.CategoryConverter;
 import ru.rfb.hack.converter.CoordinatesConverter;
 import ru.rfb.hack.domain.dto.CoordinatesDTO;
 import ru.rfb.hack.domain.entity.Organization;
@@ -34,7 +35,9 @@ public class OrganizationService {
         Coordinate coordinatesBelow = CoordinatesConverter.convertToBelow(coordinates);
 
         if (Objects.nonNull(categories) && !categories.isEmpty()) {
-            return getOrganizationsByCoordinatesAndCategories(coordinatesAbove, coordinatesBelow, categories);
+            List<String> categoryTypes = CategoryConverter.convert(categories);
+
+            return getOrganizationsByCoordinatesAndCategories(coordinatesAbove, coordinatesBelow, categoryTypes);
         } else {
             return getOrganizationsByCoordinates(coordinatesAbove, coordinatesBelow);
         }
