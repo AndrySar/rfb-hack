@@ -8,11 +8,11 @@ public enum CategoryType {
 
     APTEKI(Arrays.asList("Аптека")),
 
-    KAFE(Arrays.asList("Кафе")),
+    KAFE(Arrays.asList("Кафе", "Кофейня | кафе", "Кофейня")),
 
-    TC(Arrays.asList("Торговый центр")),
+    TC(Arrays.asList("Торговый центр", "Супермаркет")),
 
-    PRODUKTY(Arrays.asList("Продукты")),
+    PRODUKTY(Arrays.asList("Продукты", "Магазин продуктов", "Магазин мяса, колбас", "Магазин рыбы и морепродуктов", "Магазин продуктов | супермаркет", "Супермаркет")),
 
     FLOWERS(Arrays.asList("Магазин цветов")),
 
@@ -20,7 +20,7 @@ public enum CategoryType {
 
     BAR(Arrays.asList("Бары")),
 
-    MARKETS(Arrays.asList("Рынки")),
+    MARKETS(Arrays.asList("Рынки", "Магазин продуктов | кейтеринг | яйцо и мясо птицы")),
 
     UNKNOWN(Arrays.asList(""));
 
