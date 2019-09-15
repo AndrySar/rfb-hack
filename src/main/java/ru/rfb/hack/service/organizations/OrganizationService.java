@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.rfb.hack.converter.CategoryConverter;
 import ru.rfb.hack.converter.CoordinatesConverter;
 import ru.rfb.hack.domain.dto.CoordinatesDTO;
+import ru.rfb.hack.domain.entity.FlatEntity;
 import ru.rfb.hack.domain.entity.Organization;
 import ru.rfb.hack.domain.model.Coordinate;
 import ru.rfb.hack.repository.JdbcOrganizationRepository;
@@ -49,6 +50,10 @@ public class OrganizationService {
 
     private List<Organization> getOrganizationsByCoordinatesAndCategories(Coordinate coordinatesAbove, Coordinate coordinatesBelow, List<String> categories) {
         return organizationRepository.findOrganizationsByCoordinatesAndCategories(categories, coordinatesAbove, coordinatesBelow);
+    }
+
+    public List<FlatEntity> findOrganizationsInRadius(Coordinate coordinate, long radius) {
+        return organizationRepository.findOrganizationsByRadius(coordinate, radius);
     }
 
     private boolean isCoordinatesNull(CoordinatesDTO coordinates) {

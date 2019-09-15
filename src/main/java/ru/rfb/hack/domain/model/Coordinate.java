@@ -10,6 +10,10 @@ public class Coordinate {
         this.lon = lon;
     }
 
+    public Coordinate() {
+        super();
+    }
+
     public Double getLat() {
         return lat;
     }

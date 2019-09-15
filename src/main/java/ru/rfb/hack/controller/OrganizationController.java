@@ -3,15 +3,14 @@ package ru.rfb.hack.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.rfb.hack.client.predict.PredictClient;
 import ru.rfb.hack.converter.CoordinatesConverter;
 import ru.rfb.hack.converter.OrganizationConverter;
 import ru.rfb.hack.domain.dto.OrganizationDTO;
+import ru.rfb.hack.domain.entity.FlatEntity;
 import ru.rfb.hack.domain.entity.Organization;
+import ru.rfb.hack.domain.model.Coordinate;
 import ru.rfb.hack.domain.model.request.OrganizationRequest;
 import ru.rfb.hack.domain.model.response.OrganizationResponse;
 import ru.rfb.hack.service.organizations.OrganizationService;
@@ -47,5 +46,10 @@ public class OrganizationController {
     public OrganizationDTO getOrganizationDTO() {
         System.out.println("1");
         return predictClient.getOrganizationDTO();
+    }
+
+    @RequestMapping(path = "/flats-in-radius", method = RequestMethod.POST)
+    public List<FlatEntity> getFlatsInRadius(@RequestBody Coordinate coordinate, @RequestParam("radius") long radius) {
+        return organizationService.findOrganizationsInRadius(coordinate, radius);
     }
 }

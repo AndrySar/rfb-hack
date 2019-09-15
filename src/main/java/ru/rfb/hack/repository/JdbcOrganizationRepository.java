@@ -3,6 +3,7 @@ package ru.rfb.hack.repository;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
+import ru.rfb.hack.domain.entity.FlatEntity;
 import ru.rfb.hack.domain.entity.Organization;
 import ru.rfb.hack.domain.entity.UserEntity;
 import ru.rfb.hack.domain.model.Coordinate;
@@ -30,6 +31,15 @@ public class JdbcOrganizationRepository {
         "WHERE lat >= :latBelow AND lat <= :latAbove AND " +
         "      lon >= :lonBelow AND lon <= :lonAbove AND " +
         "      category IN (:categories) ";
+
+    private static final String FIND_FLAT_BY_RADIUS = "SELECT\n" +
+            "   *,\n" +
+            "   ST_Distance(st_setsrid(st_geomfromtext('POINT(:lon :lat)'),4326)::geography) as distance\n" +
+            "FROM\n" +
+            "   flats h\n" +
+            "where ST_DWithin(st_setsrid(st_geomfromtext('POINT(:lon :lat)'),4326), h.point, :degrees)\n" +
+            "   and ST_DWithin(st_setsrid(st_geomfromtext('POINT(:lon :lat)'),4326)::geography, h.point::geography, :radius)\n" +
+            "ORDER BY distance";
 
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
@@ -69,6 +79,28 @@ public class JdbcOrganizationRepository {
                 rs.getString(LAT),
                 rs.getString(LON)
             )
+        );
+    }
+
+    public List<FlatEntity> findOrganizationsByRadius(Coordinate coordinate, long radius) {
+        double lat = coordinate.getLat();
+        double lon = coordinate.getLon();
+        float km2degree = 0.015f;
+        float degree = radius/1000 * km2degree;
+        return jdbcTemplate.query(
+                FIND_FLAT_BY_RADIUS,
+                new MapSqlParameterSource()
+                .addValue("lon", lon)
+                .addValue("lat", lat)
+                .addValue("degrees", degree)
+                .addValue("radius", radius),
+                (rs, rowNum) -> new FlatEntity(
+                        rs.getString(LAT),
+                        rs.getString(LON),
+                        rs.getString("square"),
+                        rs.getString("sale_price"),
+                        rs.getString("flat_num")
+                )
         );
     }
 }
