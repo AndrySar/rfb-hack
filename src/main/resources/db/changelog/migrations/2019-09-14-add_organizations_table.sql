@@ -1,7 +1,7 @@
 -- auto-generated definition
 
 --changeset msa:add_organization_table
-create table organizations
+CREATE TABLE IF NOT EXISTS organizations
 (
     number               varchar(100),
     id                   bigint not null,

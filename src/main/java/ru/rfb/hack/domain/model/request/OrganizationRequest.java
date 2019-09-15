@@ -17,11 +17,6 @@ public class OrganizationRequest {
         this.categories = categories;
     }
 
-//    @JsonCreator
-//    public OrganizationRequest(@JsonProperty("coordinates") CoordinatesDTO coordinates) {
-//        this.coordinates = coordinates;
-//    }
-
     public CoordinatesDTO getCoordinates() {
         return coordinates;
     }

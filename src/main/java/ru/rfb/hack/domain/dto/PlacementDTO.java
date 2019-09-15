@@ -1,5 +1,8 @@
 package ru.rfb.hack.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class PlacementDTO {
 
     private String lat;
@@ -11,7 +14,15 @@ public class PlacementDTO {
     private String visibility;
     private String entryConvenience;
 
-    public PlacementDTO(String lat, String lon, String openDate, Integer openTime, Integer closeTime, Integer square, String visibility, String entryConvenience) {
+    @JsonCreator
+    public PlacementDTO(@JsonProperty("lat") String lat,
+                        @JsonProperty("lon") String lon,
+                        @JsonProperty("openDate") String openDate,
+                        @JsonProperty("openTime") Integer openTime,
+                        @JsonProperty("closeTime") Integer closeTime,
+                        @JsonProperty("square") Integer square,
+                        @JsonProperty("visibility") String visibility,
+                        @JsonProperty("entryConvenience") String entryConvenience) {
         this.lat = lat;
         this.lon = lon;
         this.openDate = openDate;
