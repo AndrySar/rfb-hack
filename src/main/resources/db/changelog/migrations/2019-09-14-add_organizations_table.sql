@@ -5,13 +5,13 @@ create table organizations
 (
     number               varchar(100),
     id                   bigint not null,
-    organization_name    varchar(100) default ''::character varying,
-    category             varchar(100) default ''::character varying,
+    organization_name    varchar(100),
+    category             varchar(100),
     postcode             bigint       default 0,
-    country              varchar(50)  default 'Страна'::character varying,
-    region               varchar(50)  default 'Регион'::character varying,
-    area                 varchar(50)  default ''::character varying,
-    city                 varchar(50)  default ''::character varying,
+    country              varchar(50),
+    region               varchar(50),
+    area                 varchar(50),
+    city                 varchar(50),
     street               varchar(50),
     house                varchar(20),
     address              varchar(200),
@@ -31,6 +31,3 @@ create table organizations
     level_1              real,
     level_2              real
 );
-
-alter table organizations
-    owner to rfb_hack;
