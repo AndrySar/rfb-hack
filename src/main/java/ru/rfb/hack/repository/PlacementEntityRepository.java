@@ -6,4 +6,6 @@ import ru.rfb.hack.domain.entity.PlacementEntity;
 
 @Repository
 public interface PlacementEntityRepository extends JpaRepository<PlacementEntity, Long> {
+
+    PlacementEntity getById(Long id);
 }

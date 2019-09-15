@@ -19,4 +19,8 @@ public class QuestionaryService {
         PlacementEntity placementEntity = PlacementConverter.convert(placementDTO);
         return placementEntityRepository.save(placementEntity);
     }
+
+    public PlacementEntity getById(Long id) {
+        return placementEntityRepository.getById(id);
+    }
 }

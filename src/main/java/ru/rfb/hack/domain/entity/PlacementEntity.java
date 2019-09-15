@@ -45,18 +45,6 @@ public class PlacementEntity {
     @Column(name = "data")
     private String data;
 
-    public PlacementEntity(String lat, String lon, String openDate, String openTime, String closeTime, String square, String visibility, String entryConvenience, String data) {
-        this.lat = lat;
-        this.lon = lon;
-        this.openDate = openDate;
-        this.openTime = openTime;
-        this.closeTime = closeTime;
-        this.square = square;
-        this.visibility = visibility;
-        this.entryConvenience = entryConvenience;
-        this.data = data;
-    }
-
     public Long getId() {
         return id;
     }

@@ -6,15 +6,18 @@ import ru.rfb.hack.domain.entity.PlacementEntity;
 public class PlacementConverter {
 
     public static PlacementEntity convert(PlacementDTO placementDTO) {
-        return new PlacementEntity(
-            placementDTO.getLat(),
-            placementDTO.getLon(),
-            placementDTO.getOpenDate(),
-            placementDTO.getOpenTime().toString(),
-            placementDTO.getCloseTime().toString(),
-            placementDTO.getSquare().toString(),
-            placementDTO.getVisibility(),
-            placementDTO.getEntryConvenience(),
-            "{}");
+        PlacementEntity placementEntity = new PlacementEntity();
+
+        placementEntity.setLat(placementDTO.getLat());
+        placementEntity.setLon(placementDTO.getLon());
+        placementEntity.setOpenDate(placementDTO.getOpenDate());
+        placementEntity.setOpenTime(placementDTO.getOpenTime().toString());
+        placementEntity.setCloseTime(placementDTO.getCloseTime().toString());
+        placementEntity.setSquare(placementDTO.getSquare().toString());
+        placementEntity.setVisibility(placementDTO.getVisibility());
+        placementEntity.setEntryConvenience(placementDTO.getEntryConvenience());
+        placementEntity.setData("{}");
+
+        return placementEntity;
     }
 }
