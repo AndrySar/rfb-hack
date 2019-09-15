@@ -34,6 +34,3 @@ create table organizations
 
 alter table organizations
     owner to rfb_hack;
-
-create unique index organizations_id_uindex
-    on organizations (id);
