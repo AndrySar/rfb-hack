@@ -6,5 +6,6 @@
 
     <include file="migrations/2019-09-12-add_user_table.sql" relativeToChangelogFile="true"/>
     <include file="migrations/2019-09-14-add_organizations_table.sql" relativeToChangelogFile="true"/>
+    <include file="migrations/2019-09-15-add_placements_table.sql" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
