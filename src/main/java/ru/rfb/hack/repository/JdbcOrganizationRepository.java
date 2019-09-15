@@ -4,10 +4,8 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.rfb.hack.domain.entity.Organization;
-import ru.rfb.hack.domain.entity.UserEntity;
 import ru.rfb.hack.domain.model.Coordinate;
 
-import java.util.Collection;
 import java.util.List;
 
 @Repository
