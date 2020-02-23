@@ -24,6 +24,7 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.7'
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.3.4'
     compile group: 'com.opencsv', name: 'opencsv', version: '4.1'
+    compile group: 'org.springframework.amqp', name: 'spring-rabbit', version: '2.1.6.RELEASE'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
