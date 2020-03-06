@@ -7,6 +7,7 @@ import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,13 +18,25 @@ public class RabbitMqConfiguration {
     private static final String EXCHANGE_NAME = "test_exchange_1";
     public static final String QUEUE_NAME = "queue_1";
 
+    @Value("${spring.rabbitmq.host}")
+    private String host;
+
+    @Value("${spring.rabbitmq.port}")
+    private String port;
+
+    @Value("${spring.rabbitmq.username}")
+    private String userName;
+
+    @Value("${spring.rabbitmq.password}")
+    private String password;
+
     @Bean
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory factory = new CachingConnectionFactory();
-        factory.setHost("localhost");
-        factory.setUsername("guest");
-        factory.setPassword("guest");
-        factory.setPort(5672);
+        factory.setHost(host);
+        factory.setUsername(userName);
+        factory.setPassword(password);
+        factory.setPort(Integer.parseInt(port));
         return factory;
     }
 
